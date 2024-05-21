@@ -1,19 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { AppstoreOutlined, UserOutlined, HeartOutlined, HomeOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme, ConfigProvider } from 'antd';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import Profile from './components/Profile/Profile';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import {
+  AppstoreOutlined,
+  UserOutlined,
+  HeartOutlined,
+  HomeOutlined,
+} from "@ant-design/icons";
+import { Breadcrumb, Layout, Menu, theme, ConfigProvider } from "antd";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
+import Profile from "./components/Profile/Profile";
+import logo from "./components/assets/img/logo-beige-cropped.svg";
 
 const { Header, Content, Sider } = Layout;
 
 const App = () => {
   const user = {
-    name: 'Leo el HDP',
-    image: 'https://media1.tenor.com/m/NVwxxoyoyGgAAAAd/racoon-pedro.gif',
-    description: 'Sos un hdp',
-    joinDate: '1/1/2024'
+    name: "Leo el HDP",
+    image: "https://media1.tenor.com/m/NVwxxoyoyGgAAAAd/racoon-pedro.gif",
+    description: "Sos un hdp",
+    joinDate: "1/1/2024",
   };
 
   const {
@@ -22,7 +32,7 @@ const App = () => {
 
   // Obtener la ubicación actual
   const location = useLocation();
-  const pathnames = location.pathname.split('/').filter((item) => item);
+  const pathnames = location.pathname.split("/").filter((item) => item);
 
   // Calcular la clave seleccionada del menú según la ubicación actual
   const [selectedKeys, setSelectedKeys] = useState([]);
@@ -34,21 +44,34 @@ const App = () => {
   return (
     <ConfigProvider
       theme={{
+        components: {
+          Typography: {
+            fontFamilyCode: "'Manrope'",
+            colorLink: "rgb(43, 62, 76)",
+          },
+          Layout: {
+            algorithm: true,
+            headerBg: "rgb(43, 62, 76)",
+          },
+          Menu: {
+            darkItemBg: "rgb(43, 62, 76)",
+          },
+        },
         token: {
-          colorPrimary: '#87b867',
-          itemActiveBg: 'red'
+          colorPrimary: "#87b867",
+          colorInfo: "#87b867",
         },
       }}
     >
       <Layout>
         <Header
           style={{
-            display: 'flex',
-            alignItems: 'center',
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <Link to="/">
-            <div className="demo-logo" />
+            <img src={logo} height={64} alt="Logo" style={{ marginTop: 25 }} />
           </Link>
 
           <Menu
@@ -56,6 +79,7 @@ const App = () => {
             mode="horizontal"
             selectedKeys={selectedKeys}
             style={{
+              marginLeft: "10px",
               flex: 1,
               minWidth: 0,
             }}
@@ -80,20 +104,28 @@ const App = () => {
               theme="dark"
               selectedKeys={selectedKeys}
               style={{
-                height: '100vh',
+                height: "100vh",
                 borderRight: 0,
-                paddingTop: '30px',
+                paddingTop: "30px",
               }}
             >
               <Menu.Item key="/perfil" icon={<UserOutlined />}>
                 <Link to="/perfil">Perfil</Link>
               </Menu.Item>
-              <Menu.SubMenu key="sub1" icon={<AppstoreOutlined />} title="Aplicaciones">
+              <Menu.SubMenu
+                key="sub1"
+                icon={<AppstoreOutlined />}
+                title="Aplicaciones"
+              >
                 <Menu.Item key="21">App 1</Menu.Item>
                 <Menu.Item key="22">App 2</Menu.Item>
                 <Menu.Item key="23">App 3</Menu.Item>
               </Menu.SubMenu>
-              <Menu.SubMenu key="sub2" icon={<HeartOutlined />} title="Favoritos">
+              <Menu.SubMenu
+                key="sub2"
+                icon={<HeartOutlined />}
+                title="Favoritos"
+              >
                 <Menu.Item key="31">Favorito 1</Menu.Item>
                 <Menu.Item key="32">Favorito 2</Menu.Item>
                 <Menu.Item key="33">Favorito 3</Menu.Item>
@@ -102,15 +134,15 @@ const App = () => {
           </Sider>
           <Layout
             style={{
-              padding: '0 24px 24px',
+              padding: "0 24px 24px",
             }}
           >
-            <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb style={{ margin: "16px 0" }}>
               <Breadcrumb.Item>
                 <Link to="/">Inicio</Link>
               </Breadcrumb.Item>
               {pathnames.map((value, index) => {
-                const url = `/${pathnames.slice(0, index + 1).join('/')}`;
+                const url = `/${pathnames.slice(0, index + 1).join("/")}`;
                 return (
                   <Breadcrumb.Item key={url}>
                     <Link to={url}>{value}</Link>
