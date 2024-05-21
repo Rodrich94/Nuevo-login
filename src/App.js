@@ -20,9 +20,9 @@ const { Header, Content, Sider } = Layout;
 
 const App = () => {
   const user = {
-    name: "Leo el HDP",
+    name: "Leonel Bustamante",
     image: "https://media1.tenor.com/m/NVwxxoyoyGgAAAAd/racoon-pedro.gif",
-    description: "Sos un hdp",
+    description: "Administrador de sistemas",
     joinDate: "1/1/2024",
   };
 
@@ -52,9 +52,16 @@ const App = () => {
           Layout: {
             algorithm: true,
             headerBg: "rgb(43, 62, 76)",
+            bodyBg: "rgb(244, 223, 185,0.1)",
+            headerHeight: 80
           },
           Menu: {
             darkItemBg: "rgb(43, 62, 76)",
+          },
+          Card: {
+            "headerBg": "rgb(135, 184, 103)",
+            "colorTextHeading": "rgb(43, 62, 76)",
+            "colorText": "rgb(43, 62, 76)"
           },
         },
         token: {
