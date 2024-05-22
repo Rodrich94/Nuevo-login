@@ -96,7 +96,7 @@ const App = () => {
             <Menu.Item key="/" icon={<HomeOutlined />}>
               <Link to="/">Inicio</Link>
             </Menu.Item>
-            <Menu.Item key="#" icon={<CalendarOutlined />}>
+            <Menu.Item key="/calendar" icon={<CalendarOutlined />}>
               <Link to="/calendar">Calendario</Link>
             </Menu.Item>
           </Menu>
