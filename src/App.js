@@ -14,7 +14,9 @@ import {
   useLocation,
 } from "react-router-dom";
 import Profile from "./components/Profile/Profile";
+import Mail from "./components/Mail/Mail";
 import logo from "./components/assets/img/logo-beige-cropped.svg";
+import { Envelope } from "react-bootstrap-icons";
 
 const { Header, Content, Sider } = Layout;
 
@@ -117,7 +119,9 @@ const App = () => {
                 icon={<AppstoreOutlined />}
                 title="Aplicaciones"
               >
-                <Menu.Item key="21">App 1</Menu.Item>
+                <Menu.Item key="/mail" icon={<Envelope />}>
+                  <Link to="/mail">Correo</Link>
+                </Menu.Item>
                 <Menu.Item key="22">App 2</Menu.Item>
                 <Menu.Item key="23">App 3</Menu.Item>
               </Menu.SubMenu>
@@ -150,6 +154,7 @@ const App = () => {
                 );
               })}
             </Breadcrumb>
+
             <Content
               style={{
                 padding: 24,
@@ -161,6 +166,7 @@ const App = () => {
             >
               <Routes>
                 <Route path="/perfil" element={<Profile user={user} />} />
+                <Route path="/mail" element={<Mail user={user} />} />
                 <Route path="/" element={<div>Inicio</div>} />
               </Routes>
             </Content>
