@@ -72,7 +72,7 @@ const Calendar = () => {
         select={handleDateSelect}
         events={events}
         eventClick={handleEventClick}
-        contentHeight="80vh"
+        contentHeight="auto"
         style={calendarStyle}
       />
       <Modal

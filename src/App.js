@@ -55,7 +55,7 @@ const App = () => {
             algorithm: true,
             headerBg: "rgb(43, 62, 76)",
             bodyBg: "rgb(244, 223, 185,0.1)",
-            headerHeight: 80
+            headerHeight: "10vh"
           },
           Menu: {
             darkItemBg: "rgb(43, 62, 76)",
@@ -113,7 +113,7 @@ const App = () => {
               theme="dark"
               selectedKeys={selectedKeys}
               style={{
-                height: "92vh",
+                height: "90vh",
                 borderRight: 0,
                 paddingTop: "30px",
               }}
