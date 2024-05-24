@@ -144,7 +144,8 @@ const App = () => {
           <Layout
             style={{
               padding: "0 24px 24px",
-              height: "90vh"
+              height: "90vh",
+              backgroundColor: "rgba(244, 223, 185, 0.8)"
             }}
           >
             <Breadcrumb style={{ margin: "16px 0" }}>
