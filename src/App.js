@@ -25,7 +25,7 @@ const App = () => {
     name: "Leonel Bustamante",
     image: "https://media1.tenor.com/m/NVwxxoyoyGgAAAAd/racoon-pedro.gif",
     description: "Administrador de sistemas",
-    joinDate: "1/1/2024",
+    joinDate: "2024-05-24",
   };
 
   const {
