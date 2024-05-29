@@ -1,0 +1,30 @@
+/* CalendarStyles.css */
+
+/* Estilo para las celdas del calendario */
+.fc-daygrid-day-number {
+    color: rgb(43, 62, 76);
+  }
+  
+  /* Estilo para las celdas del fin de semana */
+  .fc-day-sat, .fc-day-sun {
+    background-color: #a0a0a07c; /* Color de fondo de las celdas del fin de semana */
+  }
+  
+  /* Estilo para el encabezado del día */
+  .fc-col-header-cell-cushion {
+    color: rgb(43, 62, 76);
+  }
+
+  .fc-theme-standard td,   .fc-theme-standard th{
+    border-bottom: 1px solid rgb(43, 62, 76); /* Color y grosor del borde */
+  }
+
+  /* Estilo para la vista actual */
+  .fc .fc-daygrid-day.fc-day-today {
+    background-color: #88b8677e; /* Color de fondo del día actual */
+  }
+
+  .fc .fc-button-primary{
+    color: #ffffff;
+    background-color: #88b8677e;
+  }

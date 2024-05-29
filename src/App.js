@@ -4,6 +4,7 @@ import {
   UserOutlined,
   HeartOutlined,
   HomeOutlined,
+  CalendarOutlined
 } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, theme, ConfigProvider } from "antd";
 import {
@@ -14,6 +15,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Profile from "./components/Profile/Profile";
+import Calendar from "./components/Calendar/Calendar";
 import logo from "./components/assets/img/logo-beige-cropped.svg";
 
 const { Header, Content, Sider } = Layout;
@@ -53,7 +55,7 @@ const App = () => {
             algorithm: true,
             headerBg: "rgb(43, 62, 76)",
             bodyBg: "rgb(244, 223, 185,0.1)",
-            headerHeight: 80
+            headerHeight: "10vh"
           },
           Menu: {
             darkItemBg: "rgb(43, 62, 76)",
@@ -94,8 +96,8 @@ const App = () => {
             <Menu.Item key="/" icon={<HomeOutlined />}>
               <Link to="/">Inicio</Link>
             </Menu.Item>
-            <Menu.Item key="#" icon={<UserOutlined />}>
-              <Link to="#">Prueba1</Link>
+            <Menu.Item key="/calendar" icon={<CalendarOutlined />}>
+              <Link to="/calendar">Calendario</Link>
             </Menu.Item>
           </Menu>
         </Header>
@@ -103,7 +105,7 @@ const App = () => {
           <Sider
             width={200}
             style={{
-              background: colorBgContainer,
+              background: colorBgContainer
             }}
           >
             <Menu
@@ -111,7 +113,7 @@ const App = () => {
               theme="dark"
               selectedKeys={selectedKeys}
               style={{
-                height: "100vh",
+                height: "90vh",
                 borderRight: 0,
                 paddingTop: "30px",
               }}
@@ -142,6 +144,8 @@ const App = () => {
           <Layout
             style={{
               padding: "0 24px 24px",
+              height: "90vh",
+              backgroundColor: "rgba(244, 223, 185, 0.8)"
             }}
           >
             <Breadcrumb style={{ margin: "16px 0" }}>
@@ -168,6 +172,7 @@ const App = () => {
             >
               <Routes>
                 <Route path="/perfil" element={<Profile user={user} />} />
+                <Route path="/calendar" element={<Calendar/>} />
                 <Route path="/" element={<div>Inicio</div>} />
               </Routes>
             </Content>
