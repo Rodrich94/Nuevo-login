@@ -6,7 +6,7 @@ import {
   HomeOutlined,
   CalendarOutlined
 } from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, theme, ConfigProvider } from "antd";
+import { Breadcrumb, Layout, Menu, theme, ConfigProvider, Avatar } from "antd";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +17,7 @@ import {
 import Profile from "./components/Profile/Profile";
 import Calendar from "./components/Calendar/Calendar";
 import logo from "./components/assets/img/logo-beige-cropped.svg";
+import Home from "./components/Home/Home";
 
 const { Header, Content, Sider } = Layout;
 
@@ -25,7 +26,7 @@ const App = () => {
     name: "Leonel Bustamante",
     image: "https://media1.tenor.com/m/NVwxxoyoyGgAAAAd/racoon-pedro.gif",
     description: "Administrador de sistemas",
-    joinDate: "1/1/2024",
+    joinDate: "2024-05-24",
   };
 
   const {
@@ -42,6 +43,11 @@ const App = () => {
   useEffect(() => {
     setSelectedKeys([location.pathname]);
   }, [location.pathname]);
+
+
+  const [collapsed, setCollapsed] = useState(false);
+  const minWidthToShowName = 150; 
+  const width = collapsed ? 150 : 200;
 
   return (
     <ConfigProvider
@@ -107,20 +113,20 @@ const App = () => {
             style={{
               background: colorBgContainer
             }}
+            collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}
           >
             <Menu
               mode="inline"
               theme="dark"
               selectedKeys={selectedKeys}
               style={{
-                height: "90vh",
+                height: "85vh",
                 borderRight: 0,
                 paddingTop: "30px",
+                display: "flex",
+                flexDirection: 'column',
               }}
             >
-              <Menu.Item key="/perfil" icon={<UserOutlined />}>
-                <Link to="/perfil">Perfil</Link>
-              </Menu.Item>
               <Menu.SubMenu
                 key="sub1"
                 icon={<AppstoreOutlined />}
@@ -139,6 +145,13 @@ const App = () => {
                 <Menu.Item key="32">Favorito 2</Menu.Item>
                 <Menu.Item key="33">Favorito 3</Menu.Item>
               </Menu.SubMenu>
+              <div style={{ marginTop: 'auto' }}>
+                <Menu.Item key="/perfil" icon={<Avatar style={{ backgroundColor: '#87b867' }} icon={<UserOutlined />} />}>
+                  <Link to="/perfil">
+                    Nombre del Usuario
+                  </Link>
+                </Menu.Item>
+          </div>
             </Menu>
           </Sider>
           <Layout
@@ -173,7 +186,7 @@ const App = () => {
               <Routes>
                 <Route path="/perfil" element={<Profile user={user} />} />
                 <Route path="/calendar" element={<Calendar/>} />
-                <Route path="/" element={<div>Inicio</div>} />
+                <Route path="/" element={<Home/>} />
               </Routes>
             </Content>
           </Layout>
